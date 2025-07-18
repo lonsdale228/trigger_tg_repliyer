@@ -1,0 +1,2 @@
+Kurigram==2.2.7
+kurigram-addons==0.1.4

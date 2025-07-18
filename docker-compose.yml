@@ -1,0 +1,29 @@
+services:
+  tg_bot:
+    container_name: trigger_replier
+    build: .
+    restart: unless-stopped
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    depends_on:
+      - db
+    environment:
+      - TZ=Europe/Kyiv
+
+  db:
+    image: postgres:17.5-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    expose:
+      - 5435
+    ports:
+      - "5435:5432"
+    env_file:
+      - .env
+    environment:
+      - TZ=Europe/Kyiv
+
+volumes:
+  postgres_data:
