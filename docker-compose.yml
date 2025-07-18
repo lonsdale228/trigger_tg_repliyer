@@ -9,8 +9,6 @@ services:
       - .env
     depends_on:
       - db
-    environment:
-      - TZ=Europe/Kyiv
 
   db:
     image: postgres:17.5-alpine
@@ -22,8 +20,6 @@ services:
       - "5435:5432"
     env_file:
       - .env
-    environment:
-      - TZ=Europe/Kyiv
 
 volumes:
   postgres_data:
